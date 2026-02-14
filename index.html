@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Ali ❤️</title>
+    <style>
+        :root {
+            --primary-pink: #ff85a2;
+            --soft-pink: #fbc2eb;
+            --heart-red: #ff4d6d;
+        }
+
+        body {
+            background: #fff0f3;
+            background-image: radial-gradient(#ffc1cc 1px, transparent 1px);
+            background-size: 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            color: #d63384;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
+            border: 4px solid #ffccd5;
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            z-index: 10;
+        }
+
+        h1 { font-size: 1.8rem; margin-bottom: 10px; }
+        .gif-container img { width: 180px; border-radius: 20px; margin-bottom: 20px; border: 3px solid #ff85a2; }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            position: relative;
+            height: 60px;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        #yesBtn { background-color: var(--heart-red); color: white; }
+        #yesBtn:hover { transform: scale(1.1); background-color: #ff0040; }
+
+        #noBtn { background-color: #adb5bd; color: white; position: absolute; }
+
+        .input-section {
+            margin-top: 25px;
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        input[type="date"] {
+            padding: 12px;
+            border: 2px solid var(--primary-pink);
+            border-radius: 15px;
+            outline: none;
+            color: #d63384;
+            font-family: inherit;
+        }
+
+        #success {
+            display: none;
+            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div id="askPage">
+            <h1>Hi Ali! ✨</h1>
+            <div class="gif-container">
+                <img id="mainGif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwdW1mZzBqM3BqZzBqM3BqZzBqM3BqZzBqM3BqZzBqM3BqJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Puppy Eyes">
+            </div>
+            <p style="font-size: 1.2rem;">Will you be my Valentine? ❤️</p>
+            
+            <div class="btn-group">
+                <button id="yesBtn">Yes! 😍</button>
+                <button id="noBtn">No 😢</button>
+            </div>
+        </div>
+
+        <div id="datePage" class="input-section">
+            <h2>Yay! But first...</h2>
+            <p>Do you remember our anniversary date? 🤔</p>
+            <input type="date" id="dateInput">
+            <p id="error" style="color: #ff4d6d; font-size: 0.9rem; display: none; margin-top: 10px;">Incorrect! Try again, Ali! 🧐</p>
+        </div>
+
+        <div id="success">
+            <h1 style="color: #ff4d6d;">Correct! March 6th 🎉</h1>
+            <p>I love you so much, Ali! ❤️</p>
+            <div class="gif-container">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3BqZzBqM3BqZzBqM3BqZzBqM3BqZzBqM3BqZzBqM3BqJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/143v0Z47rLgp0s/giphy.gif" alt="Celebration">
+            </div>
+            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1102927249&color=%23ff85a2&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const askPage = document.getElementById('askPage');
+        const datePage = document.getElementById('datePage');
+        const success = document.getElementById('success');
+        const dateInput = document.getElementById('dateInput');
+        const error = document.getElementById('error');
+
+        // Teleporting No Button
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+            noBtn.style.position = 'fixed';
+        });
+
+        // Show Date Input on Yes
+        yesBtn.addEventListener('click', () => {
+            askPage.style.display = 'none';
+            datePage.style.display = 'block';
+        });
+
+        // Check Date (March 6th)
+        dateInput.addEventListener('change', (e) => {
+            if (e.target.value.includes("-03-06")) {
+                datePage.style.display = 'none';
+                success.style.display = 'block';
+            } else {
+                error.style.display = 'block';
+            }
+        });
+
+        // Hide error when user starts picking a new date
+        dateInput.addEventListener('focus', () => {
+            error.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
